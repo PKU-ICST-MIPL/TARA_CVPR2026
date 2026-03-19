@@ -5,21 +5,21 @@ MAX_PROMPT_LENGTH=1024
 NUM_TRAIN_EPOCHS=1  
 
 export DEBUG_MODE="false" # Enable Debug if you want to see the rollout of model during RL
-export LOG_PATH="debug_log_2b_instruct-no-thinking_${DATASET}-1shot-fewshot-ep${NUM_TRAIN_EPOCHS}.txt"
+export LOG_PATH="debug_log_qwen2vl-2b-instruct-no-thinking_${DATASET}-1shot-fewshot-ep${NUM_TRAIN_EPOCHS}.txt"
 OUTPUT_DIR="../../checkpoints/Qwen2-VL-2B-Instruct-no-thinking-${DATASET}-1shot-fewshot-ep${NUM_TRAIN_EPOCHS}/"
 
-export CUDA_VISIBLE_DEVICES=0,1 #2,3,4,5,6,7,8,9
+export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 
 export PYTHONPATH=./src/open_r1/trainer:$PYTHONPATH
 
-PYTHONIOENCODING=utf-8 python -m torch.distributed.run --nproc_per_node="2" \
+PYTHONIOENCODING=utf-8 python -m torch.distributed.run --nproc_per_node="8" \
     --nnodes="1" \
     --node_rank="0" \
     --master_addr="127.0.0.1" \
     --master_port="12351" \
     src/open_r1/grpo_direct.py \
     --output_dir "$OUTPUT_DIR" \
-    --model_name_or_path ~/.cache/huggingface/hub/models--Qwen--Qwen2-VL-2B-Instruct/snapshots/895c3a49bc3fa70a340399125c650a463535e71c/ \
+    --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
     --dataset_name "../../data/${DATASET}-1shot-fewshots" \
     --deepspeed local_scripts/zero3.json \
     --max_prompt_length "$MAX_PROMPT_LENGTH" \
