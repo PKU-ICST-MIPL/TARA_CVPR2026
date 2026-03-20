@@ -23,8 +23,9 @@
 - **Feb 2026:** 🎉🎉🎉 TARA is accepted to CVPR 2026! See you in Denver this June!
 
 ## 🧠 More Related Research
-- [**Fine-R1**](https://github.com/PKU-ICST-MIPL/FineR1_ICLR2026) (ICLR 2026): the first MLLM to surpass various strong CLIP-like models (e.g., SigLIP-L) in FGVR
-- [**Finedefics**](https://github.com/PKU-ICST-MIPL/Finedefics_ICLR2025) (ICLR 2025): revisit three quintessential capabilities of MLLMs for FGVR and position of the root cause as a misalignment problem
+- **Fine-R1** (ICLR 2026): the first MLLM to surpass various strong CLIP-like models (e.g., SigLIP-L) in FGVR. 【[Paper](https://arxiv.org/abs/2602.07605)】【[Code](https://github.com/PKU-ICST-MIPL/FineR1_ICLR2026)】
+- **Finedefics** (ICLR 2025): revisiting three quintessential capabilities of MLLMs for FGVR and position of the root cause as a misalignment problem. 【[Paper](https://arxiv.org/abs/2501.15140)】【[Code](https://github.com/PKU-ICST-MIPL/Finedefics_ICLR2025)】
+
 
 ## 🌟 **Motivation**
 
