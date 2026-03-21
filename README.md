@@ -73,16 +73,16 @@ Download 1-shot training data of iNaturalist-2021 from [Hugging Face](https://hu
 ```bash
 # Qwen3-VL-2B
 bash fewshot_no-think-qwen3.sh
-# Qwen2-VL-2B
-bash fewshot_no-think-qwen2.sh
+# Qwen2.5-VL-3B
+bash fewshot_no-think-qwen2_5.sh
 ```
 
 ##### No-Thinking RFT + TARA (ours)
 ```bash
 # Qwen3-VL-2B
 bash fewshot_no-think-tara-qwen3.sh
-# Qwen2-VL-2B
-bash fewshot_no-think-tara-qwen2.sh
+# Qwen2.5-VL-3B
+bash fewshot_no-think-tara-qwen2_5.sh
 ```
 
 ### 📋 Evaluation
@@ -105,7 +105,7 @@ bash scripts/ours.sh
 
 ## 🥰 Acknowledgements
 
-We thank the [CLS-RL](https://github.com/minglllli/CLS-RL) and [LLM-Hierarchical-Consistency](https://github.com/yuanqing-ai/LLM-Hierarchical-Consistency) for providing the foundational codebase that we adapted to implement TARA. 
+We thank the [CLS-RL](https://github.com/minglllli/CLS-RL), [LLM-Hierarchical-Consistency](https://github.com/yuanqing-ai/LLM-Hierarchical-Consistency), and [BioCLIP2](https://github.com/AmirKhanjari/bioclip2) for providing the foundational codebase that we adapted to implement TARA. 
 
 ## 📝 Citation
 If you find it useful for your research and applications, please cite related papers using this BibTeX:

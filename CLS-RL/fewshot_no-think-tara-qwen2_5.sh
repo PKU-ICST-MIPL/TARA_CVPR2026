@@ -5,8 +5,8 @@ MAX_PROMPT_LENGTH=1024
 NUM_TRAIN_EPOCHS=1  
 
 export DEBUG_MODE="false" # Enable Debug if you want to see the rollout of model during RL
-export LOG_PATH="debug_log_qwen2vl-2b-instruct-no-thinking_${DATASET}-1shot-fewshot-ep${NUM_TRAIN_EPOCHS}-tara.txt"
-OUTPUT_DIR="../../checkpoints/Qwen2-VL-2B-Instruct-no-thinking-${DATASET}-1shot-fewshot-ep${NUM_TRAIN_EPOCHS}-tara/"
+export LOG_PATH="debug_log_qwen2.5vl-3b-instruct-no-thinking_${DATASET}-1shot-fewshot-ep${NUM_TRAIN_EPOCHS}-tara.txt"
+OUTPUT_DIR="../../checkpoints/Qwen2.5-VL-3B-Instruct-no-thinking-${DATASET}-1shot-fewshot-ep${NUM_TRAIN_EPOCHS}-tara/"
 
 export CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
 
@@ -19,7 +19,7 @@ PYTHONIOENCODING=utf-8 python -m torch.distributed.run --nproc_per_node="8" \
     --master_port="12351" \
     src/open_r1/grpo_direct_tara.py \
     --output_dir "$OUTPUT_DIR" \
-    --model_name_or_path Qwen/Qwen2-VL-2B-Instruct \
+    --model_name_or_path Qwen/Qwen2.5-VL-3B-Instruct \
     --dataset_name "../../data/${DATASET}-1shot-fewshots" \
     --deepspeed local_scripts/zero3.json \
     --max_prompt_length "$MAX_PROMPT_LENGTH" \
@@ -33,7 +33,7 @@ PYTHONIOENCODING=utf-8 python -m torch.distributed.run --nproc_per_node="8" \
     --attn_implementation flash_attention_2 \
     --max_pixels 401408 \
     --num_train_epochs "$NUM_TRAIN_EPOCHS" \
-    --run_name "Qwen2-VL-2B-Instruct-${DATASET}-1shot-fewshot-ep${NUM_TRAIN_EPOCHS}-tara" \
+    --run_name "Qwen2.5-VL-3B-Instruct-${DATASET}-1shot-fewshot-ep${NUM_TRAIN_EPOCHS}-tara" \
     --save_steps 200 \
     --save_only_model true \
     --num_generations 4
